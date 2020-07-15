@@ -3,15 +3,15 @@
 }
 body {
   background-color: #e6e6e6;
+  margin: 0 auto;
   text-align: center;
-  margin: auto;
 }
 li {
   list-style: none;
 }
 section {
   width: 50%;
-  align-items: center;
+  margin: auto;
 }
 .head {
   border-top-left-radius: 24px;
@@ -54,7 +54,6 @@ section {
     #c6ffdd
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #f7797d, #fbd786, #c6ffdd);
-
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
 }
@@ -72,14 +71,14 @@ input {
   outline: none;
 }
 
-.del {
+.item__trash {
   cursor: pointer;
   background-color: transparent;
   border: 0;
   outline: none;
   font-size: 18px;
 }
-.btn {
+.footer__button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -89,7 +88,7 @@ input {
   outline: none;
   font-size: 36px;
 }
-.btn:hover {
+.footer__button:hover {
   cursor: pointer;
   transform: scale(1.08);
   transition: 300ms;

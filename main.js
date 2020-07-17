@@ -19,31 +19,23 @@ function onAdd() {
   input.focus();
 }
 
+let id = 0;
 function createItem(text) {
   const itemRow = document.createElement("li");
   itemRow.setAttribute("class", "item__row");
-  const item = document.createElement("div");
-  item.setAttribute("class", "item");
-
-  const name = document.createElement("span");
-  name.setAttribute("class", "item__name");
-  name.innerHTML = text;
-  const btn = document.createElement("button");
-  btn.setAttribute("class", "item__trash");
-  btn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-  btn.addEventListener("click", () => {
-    memo.removeChild(itemRow);
-  });
-
-  item.appendChild(name);
-  item.appendChild(btn);
-  const divider = document.createElement("div");
-  divider.setAttribute("class", "item__divider");
-
-  itemRow.appendChild(item);
-  itemRow.appendChild(divider);
+  itemRow.setAttribute("data-id", id);
+  itemRow.innerHTML = `
+      <div class="item">
+        <span class="item__name">${text}</span>
+        <button class= "item__trash">
+          <i class="fas fa-trash-alt" data-id=${id}></i>
+        </button>
+      </div> 
+      <div class="items__divider"></div>`;
+  id++;
   return itemRow;
 }
+
 addBtn.addEventListener("click", () => {
   onAdd();
 });
@@ -51,5 +43,14 @@ addBtn.addEventListener("click", () => {
 input.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
     onAdd();
+  }
+});
+
+memo.addEventListener("click", (event) => {
+  const id = event.target.dataset.id;
+  if (id) {
+    const tmp_item = document.querySelector(`.item__row[data-id="${id}"]`);
+    //memo.removeChild(tmp_item);
+    tmp_item.remove();
   }
 });

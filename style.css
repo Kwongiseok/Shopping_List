@@ -10,7 +10,7 @@ li {
   list-style: none;
 }
 section {
-  width: 50%;
+  width: 30%;
   margin: auto;
 }
 .head {
@@ -60,7 +60,7 @@ section {
 .item {
   display: flex;
   justify-content: space-between;
-  padding: 8px 32px;
+  padding: 6px 32px;
 }
 input {
   margin-top: -10px;
@@ -76,7 +76,19 @@ input {
   background-color: transparent;
   border: 0;
   outline: none;
-  font-size: 18px;
+  font-size: 14px;
+}
+.item__trash:hover {
+  color: red;
+  transform: scale(1.02);
+  transition: 300ms;
+}
+
+.item__divider {
+  width: 90%;
+  height: 2px;
+  background-color: lightgrey;
+  margin: auto;
 }
 .footer__button {
   width: 40px;
